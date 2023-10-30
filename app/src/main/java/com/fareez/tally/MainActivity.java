@@ -1,8 +1,9 @@
-package com.fareez.tally;
+package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView tvOutput;
-    Button btnCount,btnReset;
+    Button btnCount,btnReset, btnHome;
     Integer Counter;
 
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         tvOutput = findViewById(R.id.tvOutput);
         btnCount = findViewById(R.id.btnCount);
         btnReset = findViewById(R.id.btnReset);
+        btnHome = findViewById(R.id.btnHome);
         Counter = 0;
 
         btnCount.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tvOutput.setText("0");
                 Counter = 0;
+            }
+        });
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),MainActivity2.class);
+                startActivity(i);
+
             }
         });
 
